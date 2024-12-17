@@ -1,0 +1,36 @@
+# CMake build directories
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.ninja
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.a
+*.lib
+*.exp
+*.log
+
+# Log files
+/logs/
+/*.log
+
+# VSCode files
+.vscode/
+*.code-workspace
+
+# Generated files
+*.tmp
+*.bak
+
+# Backup files
+*~
+*.swp
+
+# Other OS-specific files
+.DS_Store
+Thumbs.db
