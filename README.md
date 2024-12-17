@@ -23,11 +23,6 @@ It logs detailed information about each new process, including Process ID (PID),
 - **Compiler**: GCC (MinGW) or MSVC
 - **Tools**: CMake for project build
 
----
-
-Если ты используешь **Ninja** для сборки проекта, это можно отразить в **README.md**. Вот обновлённый раздел **"How to Build"** с учётом **Ninja**.
-
----
 
 ## How to Build
 
