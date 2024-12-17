@@ -34,3 +34,6 @@ Makefile
 # Other OS-specific files
 .DS_Store
 Thumbs.db
+
+# Ignore all test files
+test*.cpp
