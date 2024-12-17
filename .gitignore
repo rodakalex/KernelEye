@@ -37,3 +37,6 @@ Thumbs.db
 
 # Ignore all test files
 test*.cpp
+
+# Ignore TODO list
+TASK.md
