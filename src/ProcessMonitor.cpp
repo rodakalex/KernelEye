@@ -21,7 +21,6 @@ void ProcessMonitor::stop() {
 
 void ProcessMonitor::monitorProcesses() {
     logger.log("Starting process monitoring...");
-
     std::set<DWORD> knownProcesses;
 
     while (running) {
@@ -40,11 +39,12 @@ void ProcessMonitor::monitorProcesses() {
                     knownProcesses.insert(pe32.th32ProcessID);
 
                     std::string processName = getProcessName(pe32.th32ProcessID);
-                    DWORD parentPID = getParentProcessId(pe32.th32ProcessID);
+                    std::string parentProcessName = getProcessName(pe32.th32ParentProcessID);
 
                     logger.log("New process detected: PID=" + std::to_string(pe32.th32ProcessID) +
                                ", Name=" + processName +
-                               ", ParentPID=" + std::to_string(parentPID));
+                               ", ParentPID=" + std::to_string(pe32.th32ParentProcessID) +
+                               ", ParentName=" + parentProcessName);
                 }
             } while (Process32Next(hSnapshot, &pe32));
         }
@@ -55,7 +55,11 @@ void ProcessMonitor::monitorProcesses() {
 }
 
 
+
 std::string ProcessMonitor::getProcessName(DWORD processId) {
+    if (processId == 0) return "System Idle Process";
+    if (processId == 4) return "System Process";
+
     HANDLE hProcess = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, processId);
     if (hProcess) {
         char processName[MAX_PATH];
