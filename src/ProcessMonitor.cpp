@@ -7,6 +7,7 @@
 
 ProcessMonitor::ProcessMonitor(Logger& logger) : logger(logger) {}
 
+
 void ProcessMonitor::start() {
     logger.log("Starting process monitor...");
     monitorProcesses();
@@ -16,6 +17,33 @@ void ProcessMonitor::start() {
 void ProcessMonitor::stop() {
     logger.log("Stopping process monitor...");
     running = false;
+}
+
+
+void ProcessMonitor::logLoadedModules(DWORD processId) {
+    HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ, FALSE, processId);
+    if (!hProcess) {
+        logger.log("Error: Cannot open process for PID=" + std::to_string(processId));
+        return;
+    }
+
+    HMODULE hMods[1024];
+    DWORD cbNeeded;
+
+    if (EnumProcessModules(hProcess, hMods, sizeof(hMods), &cbNeeded)) {
+        logger.log("Modules loaded for PID=" + std::to_string(processId) + ":");
+        for (unsigned int i = 0; i < (cbNeeded / sizeof(HMODULE)); i++) {
+            char szModName[MAX_PATH];
+
+            if (GetModuleFileNameExA(hProcess, hMods[i], szModName, sizeof(szModName) / sizeof(char))) {
+                logger.log("  " + std::string(szModName));
+            }
+        }
+    } else {
+        logger.log("Error: Cannot enumerate modules for PID=" + std::to_string(processId));
+    }
+
+    CloseHandle(hProcess);
 }
 
 
@@ -45,7 +73,9 @@ void ProcessMonitor::monitorProcesses() {
                                ", Name=" + processName +
                                ", ParentPID=" + std::to_string(pe32.th32ParentProcessID) +
                                ", ParentName=" + parentProcessName);
-                }
+                    
+                    logLoadedModules(pe32.th32ProcessID);
+                }                
             } while (Process32Next(hSnapshot, &pe32));
         }
 

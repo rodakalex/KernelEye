@@ -12,7 +12,6 @@ public:
     explicit ProcessMonitor(Logger& logger);
     void start();
     void stop();
-void logLoadedModules(DWORD processId);
 
 private:
     Logger& logger;
@@ -20,6 +19,7 @@ private:
     void monitorProcesses();
     std::string getProcessName(DWORD processId);
     DWORD getParentProcessId(DWORD processId);
+    void logLoadedModules(DWORD processId);
 };
 
 #endif // PROCESSMONITOR_H
