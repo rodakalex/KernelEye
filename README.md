@@ -98,12 +98,8 @@ When running **KernelEye**, logs look like this:
 
 ```
 [2024-12-15 15:34:23] KernelEye started...
-[2024-12-17 19:24:05] New process detected: PID=25480, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.ColorPickerUI.exe, ParentPID=3032
-[2024-12-17 19:24:05] New process detected: PID=23844, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.CropAndLock.exe, ParentPID=3032
-[2024-12-17 19:24:05] New process detected: PID=17080, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.FancyZones.exe, ParentPID=3032
-[2024-12-17 19:24:05] New process detected: PID=5732, Name=C:\Users\abstract\AppData\Local\PowerToys\WinUI3Apps\PowerToys.Peek.UI.exe, ParentPID=3032
-[2024-12-17 19:24:05] New process detected: PID=17432, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.PowerLauncher.exe, ParentPID=3032
-[2024-12-17 19:24:05] New process detected: PID=24444, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.PowerOCR.exe, ParentPID=3032
+[2024-12-18 03:26:17] New process detected: PID=7804, Name=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe, ParentPID=3652, ParentName=C:\Windows\explorer.exe
+[2024-12-18 03:26:17] New process detected: PID=23828, Name=C:\Windows\System32\conhost.exe, ParentPID=7804, ParentName=C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 [2024-12-15 15:34:30] Stopping process monitor...
 ```
 
