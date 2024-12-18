@@ -98,8 +98,12 @@ When running **KernelEye**, logs look like this:
 
 ```
 [2024-12-15 15:34:23] KernelEye started...
-[2024-12-15 15:34:24] New process detected: PID=1234, Name=C:\Windows\System32\notepad.exe, ParentPID=5678
-[2024-12-15 15:34:26] New process detected: PID=2345, Name=C:\Program Files\chrome.exe, ParentPID=1234
+[2024-12-17 19:24:05] New process detected: PID=25480, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.ColorPickerUI.exe, ParentPID=3032
+[2024-12-17 19:24:05] New process detected: PID=23844, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.CropAndLock.exe, ParentPID=3032
+[2024-12-17 19:24:05] New process detected: PID=17080, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.FancyZones.exe, ParentPID=3032
+[2024-12-17 19:24:05] New process detected: PID=5732, Name=C:\Users\abstract\AppData\Local\PowerToys\WinUI3Apps\PowerToys.Peek.UI.exe, ParentPID=3032
+[2024-12-17 19:24:05] New process detected: PID=17432, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.PowerLauncher.exe, ParentPID=3032
+[2024-12-17 19:24:05] New process detected: PID=24444, Name=C:\Users\abstract\AppData\Local\PowerToys\PowerToys.PowerOCR.exe, ParentPID=3032
 [2024-12-15 15:34:30] Stopping process monitor...
 ```
 
