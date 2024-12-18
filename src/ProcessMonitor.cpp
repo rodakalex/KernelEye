@@ -1,7 +1,7 @@
 #include "ProcessMonitor.h"
 #include <windows.h>
 #include <TlHelp32.h>
-#include <set>
+#include <unordered_set>
 #include <psapi.h>
 
 
@@ -21,7 +21,7 @@ void ProcessMonitor::stop() {
 
 void ProcessMonitor::monitorProcesses() {
     logger.log("Starting process monitoring...");
-    std::set<DWORD> knownProcesses;
+    std::unordered_set<DWORD> knownProcesses;
 
     while (running) {
         HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
@@ -89,3 +89,4 @@ DWORD ProcessMonitor::getParentProcessId(DWORD processId) {
     CloseHandle(hSnapshot);
     return 0;
 }
+

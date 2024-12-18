@@ -12,7 +12,7 @@ public:
     explicit ProcessMonitor(Logger& logger);
     void start();
     void stop();
-
+void logLoadedModules(DWORD processId);
 
 private:
     Logger& logger;
