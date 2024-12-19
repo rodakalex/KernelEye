@@ -119,4 +119,3 @@ DWORD ProcessMonitor::getParentProcessId(DWORD processId) {
     CloseHandle(hSnapshot);
     return 0;
 }
-

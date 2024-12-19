@@ -10,11 +10,15 @@ public:
     ~Logger();
     explicit Logger(const std::string& filePath);
     void log(const std::string& message);
-    std::string getCurrentTime();
+    static std::string generateDailyLogFilePath(const std::string& directory);
+    std::string getCurrentTimeForLog();
+    static std::string getCurrentTimeForFileName();
 
 private:
     std::ofstream logFile;
     std::mutex logMutex;
+    static std::tm getLocalTime();
+    static std::string getFormattedTime(const std::string &format);
 };
 
 #endif // LOGGER_H

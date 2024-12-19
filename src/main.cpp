@@ -1,11 +1,12 @@
 #include "ProcessMonitor.h"
 #include "Logger.h"
 #include <iostream>
-
+#include <stdexcept>
 
 int main() {
     try {
-        Logger logger("logs/processes.log");
+        std::string dailyLogPath = Logger::generateDailyLogFilePath("logs");
+        Logger logger(dailyLogPath);
         logger.log("KernelEye started...");
 
         ProcessMonitor monitor(logger);
