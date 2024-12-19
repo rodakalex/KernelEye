@@ -12,6 +12,7 @@ set(SOURCES
     src/ProcessMonitor.cpp
     src/Logger.cpp
     src/SystemUtils.cpp
+    src/FileSystemMonitor.cpp
 )
 
 add_executable(KernelEye ${SOURCES})
